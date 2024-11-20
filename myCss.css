@@ -21,8 +21,7 @@
     display: flex;
     flex-wrap: wrap;
     
-    margin: 0 auto;
-    justify-content: center;
+    margin: 10%;
 }
 .cell{
     width: 32%;
@@ -113,4 +112,11 @@
 .south-est.secondary-content{
     border-left: 2px solid black;
     border-top: 2px solid black;
+}
+
+.vittoria{
+    color: red
+}
+.nonSelezionato{
+    background-color: lightgrey;
 }

@@ -4,124 +4,136 @@
         <link rel="stylesheet" href="myCss.css">
     </head>
     <body>
-        <div id="main" class = "main-content">
-            <div id="a1" class = " secondary-content north-west">
+        <div id="main" class="main-content">        
+            <!-- Row 0 -->
+            <div id="0" class="secondary-content north-west">
                 <div class="content">
-                    <div id="a1-a1" class = " cell north-west"></div>
-                    <div id="a1-a2" class = " cell north-center"></div>
-                    <div id="a1-a3" class = " cell north-est"></div>
-                    <div id="a1-b1" class = " cell center-west"></div>
-                    <div id="a1-b2" class = " cell center-center"></div>
-                    <div id="a1-b3" class = " cell center-est"></div>
-                    <div id="a1-c1" class = " cell south-west"></div>
-                    <div id="a1-c2" class = " cell south-center"></div>
-                    <div id="a1-c3" class = " cell south-est"></div>
+                    <div id="0-0" class="cell north-west" onclick="mossa(0,0)"></div>
+                    <div id="0-1" class="cell north-center" onclick="mossa(0,1)"></div>
+                    <div id="0-2" class="cell north-est" onclick="mossa(0,2)"></div>
+                    <div id="0-3" class="cell center-west" onclick="mossa(0,3)"></div>
+                    <div id="0-4" class="cell center-center" onclick="mossa(0,4)"></div>
+                    <div id="0-5" class="cell center-est" onclick="mossa(0,5)"></div>
+                    <div id="0-6" class="cell south-west" onclick="mossa(0,6)"></div>
+                    <div id="0-7" class="cell south-center" onclick="mossa(0,7)"></div>
+                    <div id="0-8" class="cell south-est" onclick="mossa(0,8)"></div>
                 </div>
             </div>
-            <div id="a2" class = " secondary-content north-center">
+
+            <!-- Row 1 -->
+            <div id="1" class="secondary-content north-center">
                 <div class="content">
-                    <div id="a2-a1" class = " cell north-west"></div>
-                    <div id="a2-a2" class = " cell north-center"></div>
-                    <div id="a2-a3" class = " cell north-est"></div>
-                    <div id="a2-b1" class = " cell center-west"></div>
-                    <div id="a2-b2" class = " cell center-center"></div>
-                    <div id="a2-b3" class = " cell center-est"></div>
-                    <div id="a2-c1" class = " cell south-west"></div>
-                    <div id="a2-c2" class = " cell south-center"></div>
-                    <div id="a2-c3" class = " cell south-est"></div>
+                    <div id="1-0" class="cell north-west" onclick="mossa(1,0)"></div>
+                    <div id="1-1" class="cell north-center" onclick="mossa(1,1)"></div>
+                    <div id="1-2" class="cell north-est" onclick="mossa(1,2)"></div>
+                    <div id="1-3" class="cell center-west" onclick="mossa(1,3)"></div>
+                    <div id="1-4" class="cell center-center" onclick="mossa(1,4)"></div>
+                    <div id="1-5" class="cell center-est" onclick="mossa(1,5)"></div>
+                    <div id="1-6" class="cell south-west" onclick="mossa(1,6)"></div>
+                    <div id="1-7" class="cell south-center" onclick="mossa(1,7)"></div>
+                    <div id="1-8" class="cell south-est" onclick="mossa(1,8)"></div>
                 </div>
             </div>
-            <div id="a3" class = " secondary-content north-est">
+
+            <!-- Row 2 -->
+            <div id="2" class="secondary-content north-est">
                 <div class="content">
-                    <div id="a3-a1" class = " cell north-west"></div>
-                    <div id="a3-a2" class = " cell north-center"></div>
-                    <div id="a3-a3" class = " cell north-est"></div>
-                    <div id="a3-b1" class = " cell center-west"></div>
-                    <div id="a3-b2" class = " cell center-center"></div>
-                    <div id="a3-b3" class = " cell center-est"></div>
-                    <div id="a3-c1" class = " cell south-west"></div>
-                    <div id="a3-c2" class = " cell south-center"></div>
-                    <div id="a3-c3" class = " cell south-est"></div>
+                    <div id="2-0" class="cell north-west" onclick="mossa(2,0)"></div>
+                    <div id="2-1" class="cell north-center" onclick="mossa(2,1)"></div>
+                    <div id="2-2" class="cell north-est" onclick="mossa(2,2)"></div>
+                    <div id="2-3" class="cell center-west" onclick="mossa(2,3)"></div>
+                    <div id="2-4" class="cell center-center" onclick="mossa(2,4)"></div>
+                    <div id="2-5" class="cell center-est" onclick="mossa(2,5)"></div>
+                    <div id="2-6" class="cell south-west" onclick="mossa(2,6)"></div>
+                    <div id="2-7" class="cell south-center" onclick="mossa(2,7)"></div>
+                    <div id="2-8" class="cell south-est" onclick="mossa(2,8)"></div>
                 </div>
             </div>
-            <div id="b1" class = " secondary-content center-west">
+
+            <!-- Row 3 -->
+            <div id="3" class="secondary-content center-west">
                 <div class="content">
-                    <div id="b1-a1" class = " cell north-west"></div>
-                    <div id="b1-a2" class = " cell north-center"></div>
-                    <div id="b1-a3" class = " cell north-est"></div>
-                    <div id="b1-b1" class = " cell center-west"></div>
-                    <div id="b1-b2" class = " cell center-center"></div>
-                    <div id="b1-b3" class = " cell center-est"></div>
-                    <div id="b1-c1" class = " cell south-west"></div>
-                    <div id="b1-c2" class = " cell south-center"></div>
-                    <div id="b1-c3" class = " cell south-est"></div>
+                    <div id="3-0" class="cell north-west" onclick="mossa(3,0)"></div>
+                    <div id="3-1" class="cell north-center" onclick="mossa(3,1)"></div>
+                    <div id="3-2" class="cell north-est" onclick="mossa(3,2)"></div>
+                    <div id="3-3" class="cell center-west" onclick="mossa(3,3)"></div>
+                    <div id="3-4" class="cell center-center" onclick="mossa(3,4)"></div>
+                    <div id="3-5" class="cell center-est" onclick="mossa(3,5)"></div>
+                    <div id="3-6" class="cell south-west" onclick="mossa(3,6)"></div>
+                    <div id="3-7" class="cell south-center" onclick="mossa(3,7)"></div>
+                    <div id="3-8" class="cell south-est" onclick="mossa(3,8)"></div>
                 </div>
             </div>
-            <div id="b2" class = " secondary-content center-center">
+
+            <!-- Row 4 -->
+            <div id="4" class="secondary-content center-center">
                 <div class="content">
-                    <div id="b2-a1" class = " cell north-west"></div>
-                    <div id="b2-a2" class = " cell north-center"></div>
-                    <div id="b2-a3" class = " cell north-est"></div>
-                    <div id="b2-b1" class = " cell center-west"></div>
-                    <div id="b2-b2" class = " cell center-center"></div>
-                    <div id="b2-b3" class = " cell center-est"></div>
-                    <div id="b2-c1" class = " cell south-west"></div>
-                    <div id="b2-c2" class = " cell south-center"></div>
-                    <div id="b2-c3" class = " cell south-est"></div>
+                    <div id="4-0" class="cell north-west" onclick="mossa(4,0)"></div>
+                    <div id="4-1" class="cell north-center" onclick="mossa(4,1)"></div>
+                    <div id="4-2" class="cell north-est" onclick="mossa(4,2)"></div>
+                    <div id="4-3" class="cell center-west" onclick="mossa(4,3)"></div>
+                    <div id="4-4" class="cell center-center" onclick="mossa(4,4)"></div>
+                    <div id="4-5" class="cell center-est" onclick="mossa(4,5)"></div>
+                    <div id="4-6" class="cell south-west" onclick="mossa(4,6)"></div>
+                    <div id="4-7" class="cell south-center" onclick="mossa(4,7)"></div>
+                    <div id="4-8" class="cell south-est" onclick="mossa(4,8)"></div>
                 </div>
             </div>
-            <div id="b3" class = " secondary-content center-est">
+
+            <!-- Row 5 -->
+            <div id="5" class="secondary-content center-est">
                 <div class="content">
-                    <div id="b3-a1" class = " cell north-west"></div>
-                    <div id="b3-a2" class = " cell north-center"></div>
-                    <div id="b3-a3" class = " cell north-est"></div>
-                    <div id="b3-b1" class = " cell center-west"></div>
-                    <div id="b3-b2" class = " cell center-center"></div>
-                    <div id="b3-b3" class = " cell center-est"></div>
-                    <div id="b3-c1" class = " cell south-west"></div>
-                    <div id="b3-c2" class = " cell south-center"></div>
-                    <div id="b3-c3" class = " cell south-est"></div>
+                    <div id="5-0" class="cell north-west" onclick="mossa(5,0)"></div>
+                    <div id="5-1" class="cell north-center" onclick="mossa(5,1)"></div>
+                    <div id="5-2" class="cell north-est" onclick="mossa(5,2)"></div>
+                    <div id="5-3" class="cell center-west" onclick="mossa(5,3)"></div>
+                    <div id="5-4" class="cell center-center" onclick="mossa(5,4)"></div>
+                    <div id="5-5" class="cell center-est" onclick="mossa(5,5)"></div>
+                    <div id="5-6" class="cell south-west" onclick="mossa(5,6)"></div>
+                    <div id="5-7" class="cell south-center" onclick="mossa(5,7)"></div>
+                    <div id="5-8" class="cell south-est" onclick="mossa(5,8)"></div>
                 </div>
             </div>
-            <div id="c1" class = " secondary-content south-west">
+
+            <div id="6" class="secondary-content south-west">
                 <div class="content">
-                    <div id="c1-a1" class = " cell north-west"></div>
-                    <div id="c1-a2" class = " cell north-center"></div>
-                    <div id="c1-a3" class = " cell north-est"></div>
-                    <div id="c1-b1" class = " cell center-west"></div>
-                    <div id="c1-b2" class = " cell center-center"></div>
-                    <div id="c1-b3" class = " cell center-est"></div>
-                    <div id="c1-c1" class = " cell south-west"></div>
-                    <div id="c1-c2" class = " cell south-center"></div>
-                    <div id="c1-c3" class = " cell south-est"></div>
+                    <div id="6-0" class="cell north-west" onclick="mossa(6,0)"></div>
+                    <div id="6-1" class="cell north-center" onclick="mossa(6,1)"></div>
+                    <div id="6-2" class="cell north-est" onclick="mossa(6,2)"></div>
+                    <div id="6-3" class="cell center-west" onclick="mossa(6,3)"></div>
+                    <div id="6-4" class="cell center-center" onclick="mossa(6,4)"></div>
+                    <div id="6-5" class="cell center-est" onclick="mossa(6,5)"></div>
+                    <div id="6-6" class="cell south-west" onclick="mossa(6,6)"></div>
+                    <div id="6-7" class="cell south-center" onclick="mossa(6,7)"></div>
+                    <div id="6-8" class="cell south-est" onclick="mossa(6,8)"></div>
                 </div>
             </div>
-            <div id="c2" class = " secondary-content south-center">
+            
+            <div id="7" class="secondary-content south-center">
                 <div class="content">
-                    <div id="c2-a1" class = " cell north-west"></div>
-                    <div id="c2-a2" class = " cell north-center"></div>
-                    <div id="c2-a3" class = " cell north-est"></div>
-                    <div id="c2-b1" class = " cell center-west"></div>
-                    <div id="c2-b2" class = " cell center-center"></div>
-                    <div id="c2-b3" class = " cell center-est"></div>
-                    <div id="c2-c1" class = " cell south-west"></div>
-                    <div id="c2-c2" class = " cell south-center"></div>
-                    <div id="c2-c3" class = " cell south-est"></div>
+                    <div id="7-0" class="cell north-west" onclick="mossa(7,0)"></div>
+                    <div id="7-1" class="cell north-center" onclick="mossa(7,1)"></div>
+                    <div id="7-2" class="cell north-est" onclick="mossa(7,2)"></div>
+                    <div id="7-3" class="cell center-west" onclick="mossa(7,3)"></div>
+                    <div id="7-4" class="cell center-center" onclick="mossa(7,4)"></div>
+                    <div id="7-5" class="cell center-est" onclick="mossa(7,5)"></div>
+                    <div id="7-6" class="cell south-west" onclick="mossa(7,6)"></div>
+                    <div id="7-7" class="cell south-center" onclick="mossa(7,7)"></div>
+                    <div id="7-8" class="cell south-est" onclick="mossa(7,8)"></div>
                 </div>
             </div>
-            <div id="c3" class = " secondary-content south-est">
+            
+            <div id="8" class="secondary-content south-est">
                 <div class="content">
-                    <div id="c3-a1" class = " cell north-west"></div>
-                    <div id="c3-a2" class = " cell north-center"></div>
-                    <div id="c3-a3" class = " cell north-est"></div>
-                    <div id="c3-b1" class = " cell center-west"></div>
-                    <div id="c3-b2" class = " cell center-center"></div>
-                    <div id="c3-b3" class = " cell center-est"></div>
-                    <div id="c3-c1" class = " cell south-west"></div>
-                    <div id="c3-c2" class = " cell south-center"></div>
-                    <div id="c3-c3" class = " cell south-est"></div>
+                    <div id="8-0" class="cell north-west" onclick="mossa(8,0)"></div>
+                    <div id="8-1" class="cell north-center" onclick="mossa(8,1)"></div>
+                    <div id="8-2" class="cell north-est" onclick="mossa(8,2)"></div>
+                    <div id="8-3" class="cell center-west" onclick="mossa(8,3)"></div>
+                    <div id="8-4" class="cell center-center" onclick="mossa(8,4)"></div>
+                    <div id="8-5" class="cell center-est" onclick="mossa(8,5)"></div>
+                    <div id="8-6" class="cell south-west" onclick="mossa(8,6)"></div>
+                    <div id="8-7" class="cell south-center" onclick="mossa(8,7)"></div>
+                    <div id="8-8" class="cell south-est" onclick="mossa(8,8)"></div>
                 </div>
             </div>
-        </div>
-    </body>
-</html>
+            
