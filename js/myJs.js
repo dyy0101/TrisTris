@@ -1,11 +1,14 @@
 var piano = new Array();
+
+var pianoV = new Array();
+
 for(let i = 0; i < 9; i++){
     piano[i] = new Array();
+    pianoV[i] = 0;
     for(let j = 0; j < 9; j++){
         piano[i][j] = 0;
     }
 }
-
 var vittoria = [
     [0, 1, 2],
     [3, 4, 5],
@@ -19,7 +22,7 @@ var vittoria = [
 
 function checkVittoria(piano){
     for(let i = 0; i < vittoria.length; i++){
-        if(piano[vittoria[i][0]] == piano[vittoria[i][1]] && piano[vittoria[i][1]] == piano[vittoria[i][2]]){
+        if(piano[vittoria[i][0]] == piano[vittoria[i][1]] && piano[vittoria[i][1]] == piano[vittoria[i][2]] && piano[vittoria[i][1]] != 0){
             return vittoria[i];
         }
     }
@@ -30,6 +33,7 @@ var giocatore = true;
 
 function mossa(gPos, pPos){
     if(piano[gPos][pPos] === 0){
+        console.log(gPos+"-"+pPos);
         if(giocatore){
             piano[gPos][pPos] = 1;
             document.getElementById(gPos+'-'+pPos).innerHTML = 'X';
@@ -40,10 +44,15 @@ function mossa(gPos, pPos){
         }
         giocatore = !giocatore;
         var ris = checkVittoria(piano[gPos]);
+        console.log(ris);
         if(ris !== false){
             for(let i = 0; i < 3; i ++)
                 document.getElementById(gPos+'-'+ris[i]).classList.add('vittoria');
             piano[gPos].splice(0,piano[gPos].length);
+            if(giocatore)
+                pianoV[gPos] = 1;
+            else
+                pianoV[gPos] = 1;
         }
 
         if(piano[pPos].length !== 0){
@@ -62,7 +71,29 @@ function mossa(gPos, pPos){
             }
         }
         else{
-
+            var ris1 = checkVittoria(pianoV);
+            if(ris == false){
+                for(let i = 0 ; i < 9; i++){
+                    if(piano[i].length === 0)
+                        document.getElementById(i).classList.add('nonSelezionato');
+                    else
+                        document.getElementById(i).classList.remove('nonSelezionato');
+                    for(let j = 0; j < 9; j ++){
+                        if(piano[i].length === 0){
+                            document.getElementById(i+'-'+j).style.pointerEvents = 'none';
+                        }
+                        else{
+                            document.getElementById(i+'-'+j).style.pointerEvents = 'auto';
+                        }
+                    }
+                }
+            }
+            else{
+                if(giocatore)
+                    alert('vittoria giocatore1');
+                else
+                    alert('vittoria giocatore2');
+            }        
         }
     }
 }
