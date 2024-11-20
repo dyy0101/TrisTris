@@ -93,6 +93,12 @@ function mossa(gPos, pPos){
                     alert('vittoria giocatore1');
                 else
                     alert('vittoria giocatore2');
+
+                    for(let i = 0 ; i < 9; i++){
+                        document.getElementById(i).classList.remove('nonSelezionato');
+                        for(let j = 0; j < 9; j ++)
+                            document.getElementById(i+'-'+j).style.pointerEvents = 'none';
+                    }
             }        
         }
     }
