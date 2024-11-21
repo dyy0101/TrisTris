@@ -49,10 +49,14 @@ function mossa(gPos, pPos){
             for(let i = 0; i < 3; i ++)
                 document.getElementById(gPos+'-'+ris[i]).classList.add('vittoria');
             piano[gPos].splice(0,piano[gPos].length);
-            if(giocatore)
+            if(giocatore){
+                document.getElementById(gPos).classList.add('vittoriaG1');
                 pianoV[gPos] = 1;
-            else
-                pianoV[gPos] = 1;
+            }
+            else{
+                document.getElementById(gPos).classList.add('vittoriaG2');
+                pianoV[gPos] = 2;
+            }
         }
 
         if(piano[pPos].length !== 0){
