@@ -9,6 +9,9 @@ for(let i = 0; i < 9; i++){
         piano[i][j] = 0;
     }
 }
+
+var giocatore = true;
+
 var vittoria = [
     [0, 1, 2],
     [3, 4, 5],
@@ -29,11 +32,9 @@ function checkVittoria(piano){
     return false;
 }
 
-var giocatore = true;
 
 function mossa(gPos, pPos){
     if(piano[gPos][pPos] === 0){
-        console.log(gPos+"-"+pPos);
         if(giocatore){
             piano[gPos][pPos] = 1;
             document.getElementById(gPos+'-'+pPos).innerHTML = 'X';
@@ -106,4 +107,9 @@ function mossa(gPos, pPos){
             }        
         }
     }
+}
+
+function prova(){
+    var commentPresent = document.getElementById('commento').innerHTML;
+    alert(commentPresent);
 }

@@ -1,9 +1,22 @@
+<?php
+    session_start();
+
+    $stanza = $_POST['stanza'];
+    $g1 = $_POST['g1'];
+?>
+
 <html>
     <head>
         <script type="text/javascript" src="js/myJs.js"></script>
         <link rel="stylesheet" href="myCss.css">
     </head>
     <body>
+        <div id="commento">
+            <?php
+            echo 'stanza:'.$stanza;
+            echo ' g1:'.$g1;
+            ?>
+        </div>
         <div id="main" class="main-content">        
             <!-- Row 0 -->
             <div id="0" class="secondary-content north-west">
@@ -95,6 +108,7 @@
                 </div>
             </div>
 
+            <!-- Row 6 -->
             <div id="6" class="secondary-content south-west">
                 <div class="content">
                     <div id="6-0" class="cell north-west" onclick="mossa(6,0)"></div>
@@ -109,6 +123,7 @@
                 </div>
             </div>
             
+            <!-- Row 7 -->
             <div id="7" class="secondary-content south-center">
                 <div class="content">
                     <div id="7-0" class="cell north-west" onclick="mossa(7,0)"></div>
@@ -123,6 +138,7 @@
                 </div>
             </div>
             
+            <!-- Row 8 -->
             <div id="8" class="secondary-content south-est">
                 <div class="content">
                     <div id="8-0" class="cell north-west" onclick="mossa(8,0)"></div>
@@ -136,4 +152,6 @@
                     <div id="8-8" class="cell south-est" onclick="mossa(8,8)"></div>
                 </div>
             </div>
-            
+        </div>
+    </body>
+</html>

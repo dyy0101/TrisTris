@@ -2,7 +2,11 @@ html{
     font-family: "Lucida Console", "Courier New", monospace;
     font-size: 35px;
 }
-
+#commento{
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
 .main-content {
     width: 40vw;
     height: 40vw;
@@ -126,7 +130,7 @@ html{
     color: red
 }
 .nonSelezionato{
-    background-color: lightgrey;
+    background-color: #f3f3f3;
 }
 .vittoriaG1{
     background-color: lightblue;
