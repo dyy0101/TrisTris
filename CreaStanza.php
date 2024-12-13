@@ -26,14 +26,15 @@
 ?>
 <html>
     <head>
-        <script type="text/javascript" src="js/myJs.js"></script>
         <link rel="stylesheet" href="myCss.css">
     </head>
     <body>
 
         <div class="main container">
             <?php
+                
                 echo '<div class="content">';
+                echo 'gioco : '. $
                 echo '</div>';
                 echo '<div class="content">';
                 echo '</div>';
@@ -45,16 +46,15 @@
         <div class="content-bottom">
 
             <div class="player-container">
-            <?php
-                
-                for($i = 0; $i < $num; $i ++){
+            <?php                
+                for($i = 0; $i < sizeOf($giocatore); $i ++){
                     echo '<div class="player-img" id="'.$i.'">';
-                    if($json[sizeof($json) - 1]['Giocatore'][$i] != null){
-                        echo "<img src = '".$json[sizeof($json) - 1]['Giocatore'][$i]["Img"].'>';
-                    }
-                    else{
-                        echo '<img src = "https://cdn.pixabay.com/animation/2022/07/29/03/42/03-42-05-37_512.gif">';
-                    }
+                    echo "<img src = '".$giocatore[$i]["Img"]."'>";
+                    echo '</div>';
+                }
+                for($i = 0; $i < $num - sizeOf($giocatore); $i ++){
+                    echo '<div class="player-img" id="'.$i.'">';
+                    echo '<img src = "https://cdn.pixabay.com/animation/2022/07/29/03/42/03-42-05-37_512.gif">';
                     echo '</div>';
                 }
             ?>
