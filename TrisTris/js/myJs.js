@@ -77,7 +77,7 @@ function mossa(gPos, pPos){
         }
         else{
             var ris1 = checkVittoria(pianoV);
-            if(ris == false){
+            if(ris1 == false){
                 for(let i = 0 ; i < 9; i++){
                     if(piano[i].length === 0)
                         document.getElementById(i).classList.add('nonSelezionato');
@@ -113,3 +113,4 @@ function prova(){
     var commentPresent = document.getElementById('commento').innerHTML;
     alert(commentPresent);
 }
+setTimeout(prova,500);

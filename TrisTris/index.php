@@ -1,8 +1,8 @@
 <?php
     session_start();
 
-    $stanza = $_POST['stanza'];
-    $g1 = $_POST['g1'];
+    $stanza = $_GET['stanza'];
+    $g1 = $_GET['g1'];
 ?>
 
 <html>
