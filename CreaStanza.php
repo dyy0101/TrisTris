@@ -26,25 +26,28 @@
 ?>
 <html>
     <head>
-        <link rel="stylesheet" href="myCss.css">
+        <link rel="stylesheet" href="myStyle.css">
     </head>
     <body>
 
         <div class="main container">
             <?php
                 
-                echo '<div class="content">';
-                echo 'gioco : '. $
+                echo '<div class="content testo" id="gioco">';
+                echo 'gioco : '. $gioco;
                 echo '</div>';
-                echo '<div class="content">';
+                echo '<div class="content testo-stanza" id="stanza">';
+                echo 'CODICE STANZA : '. $stanza;
                 echo '</div>';
-                echo '<div class="content">';
+                echo '<div class="content testo" id="giocatori">';
+                echo 'giocatori restanti : '. $num - sizeOf($giocatore);
                 echo '</div>';
             ?>
         </div>
 
         <div class="content-bottom">
-
+            
+            <div class="esc-button" onclick="escCheck()"> ESC </div>
             <div class="player-container">
             <?php                
                 for($i = 0; $i < sizeOf($giocatore); $i ++){
@@ -59,7 +62,6 @@
                 }
             ?>
             </div>
-            <div class="esc-button" onclick="escCheck()"> ESC </div>
 
         </div>
 
