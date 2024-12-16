@@ -1,28 +1,46 @@
 
 <?php
     session_start();
-    $nome = $_POST['nome'];
-    $gioco = $_POST['gioco'];
-    $num = $_POST['numero'];
-    $string = file_get_contents("Stanze.json");
-    $json = json_decode($string,true);
-    $stanza = 1;
-
-    $st = array_column($json, 'Stanza');
-    array_multisort($st, SORT_ASC, $json);
-
-    for ($i = 0 ; $i < sizeof($json); $i++){
-        if($stanza == $json[$i]['Stanza']){
-            $stanza ++;
+    if($_SESSION['gioco'] === []){
+        $nome = $_POST['nome'];
+        $gioco = $_POST['gioco'];
+        $numero = $_POST['numero'];
+        $string = file_get_contents("Stanze.json");
+        $json = json_decode($string,true);
+        $stanza = 1;
+    
+        $st = array_column($json, 'stanza');
+        array_multisort($st, SORT_ASC, $json);
+    
+        for ($i = 0 ; $i < sizeof($json); $i++){
+            if($stanza == $json[$i]['stanza']){
+                $stanza ++;
+            }
         }
+    
+    
+        $giocatore = array(array("Nome"=>$nome,"Img"=>"https://avatars.githubusercontent.com/u/131394105?v=4"));
+
+        $_SESSION['gioco']['stanza'] = $stanza;
+        $_SESSION['gioco']['nome'] = $nome;
+        $_SESSION['gioco']['gioco'] = $gioco;
+        $_SESSION['gioco']['numero'] = $numero;
+        $_SESSION['gioco']['giocatore'] = $giocatore;
+
+        $newStanza = array("stanza"=>$stanza, "gioco"=>$gioco, "numero"=>(int)$numero, "giocatore"=>$giocatore);
+        $json[] = $newStanza;
+    
+        $newJson = json_encode($json);
+        file_put_contents('Stanze.json', $newJson);
     }
-
-    $giocatore = array(array("Nome"=>$nome,"Img"=>"https://avatars.githubusercontent.com/u/131394105?v=4"));
-    $newStanza = array("Stanza"=>$stanza, "Gioco"=>$gioco, "Numero"=>(int)$num, "Giocatore"=>$giocatore);
-    $json[] = $newStanza;
-
-    $newJson = json_encode($json);
-    file_put_contents('Stanze.json', $newJson);
+    else{
+        
+        $stanza = $_SESSION['gioco']['stanza'];
+        $nome = $_SESSION['gioco']['nome'];
+        $gioco = $_SESSION['gioco']['gioco'];
+        $numero = $_SESSION['gioco']['numero'];
+        $giocatore = $_SESSION['gioco']['giocatore'];
+    }
 ?>
 <html>
     <head>
@@ -40,13 +58,13 @@
                 echo 'CODICE STANZA : '. $stanza;
                 echo '</div>';
                 echo '<div class="content testo" id="giocatori">';
-                echo 'giocatori restanti : '. $num - sizeOf($giocatore);
+                echo 'giocatori restanti : '. $numero - sizeOf($giocatore);
                 echo '</div>';
             ?>
         </div>
 
         <div class="content-bottom">
-            
+
             <div class="esc-button" onclick="escCheck()"> ESC </div>
             <div class="player-container">
             <?php                
@@ -55,7 +73,7 @@
                     echo "<img src = '".$giocatore[$i]["Img"]."'>";
                     echo '</div>';
                 }
-                for($i = 0; $i < $num - sizeOf($giocatore); $i ++){
+                for($i = 0; $i < $numero - sizeOf($giocatore); $i ++){
                     echo '<div class="player-img" id="'.$i.'">';
                     echo '<img src = "https://cdn.pixabay.com/animation/2022/07/29/03/42/03-42-05-37_512.gif">';
                     echo '</div>';
@@ -67,3 +85,4 @@
 
     </body>
 </html>
+?>
