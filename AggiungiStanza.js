@@ -33,6 +33,7 @@ function selezionaGioco(){
     else{
         stanzeList = document.createElement("select");
         stanzeList.id = "codStanza";
+        stanzeList.setAttribute("onchange", 'stanzaSelezionata()');
         myParent.appendChild(stanzeList);
     }
 
@@ -71,4 +72,12 @@ function checkStanza(){
         check.innerHTML = 'codice stanza non esistente';
         stanzaEsistente = false;
     }
+}
+
+function aggiungiStanza(){
+    console.log('clicked');
+}
+
+function stanzaSelezionata(){
+    console.log('changed');
 }

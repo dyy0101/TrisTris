@@ -12,7 +12,7 @@
             </div>
             <div id = "checkStanza">
             </div>
-            <div id = "aggiungiButton">
+            <div id = "aggiungiButtonInsert" onclick = "aggiungiStanza()">
             </div>
         </div>
         <div class="bottom main container">
@@ -22,6 +22,8 @@
                 <option value="Sasso-carta-forbice">Sasso-carta-forbice</option>
             </select>
             <div id="Stanza"></div>
+            <div id = "aggiungiButtonSelect" onclick = "aggiungiStanza()">
+            </div>
         </div>
     </div>
 </body>
