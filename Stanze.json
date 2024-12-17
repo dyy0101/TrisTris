@@ -1,1 +1,68 @@
-[{"stanza":1,"gioco":"tristris","numero":2,"giocatore":[{"Nome":"df","Img":"https:\/\/avatars.githubusercontent.com\/u\/131394105?v=4"}]},{"stanza":2,"gioco":"tris","numero":2,"giocatore":[{"Nome":"hgnfv","Img":"https:\/\/avatars.githubusercontent.com\/u\/131394105?v=4"}]}]
+[
+    {
+        "stanza": 3,
+        "gioco": "Sasso-carta-forbice",
+        "numero": 4,
+        "giocatore": [
+            {
+                "Nome": "sadd",
+                "Img": "https:\/\/avatars.githubusercontent.com\/u\/131394105?v=4"
+            }
+        ]
+    },
+    {
+        "stanza": 4,
+        "gioco": "Sasso-carta-forbice",
+        "numero": 4,
+        "giocatore": [
+            {
+                "Nome": "sadd",
+                "Img": "https:\/\/avatars.githubusercontent.com\/u\/131394105?v=4"
+            }
+        ]
+    },
+    {
+        "stanza": 5,
+        "gioco": "Sasso-carta-forbice",
+        "numero": 4,
+        "giocatore": [
+            {
+                "Nome": "sadd",
+                "Img": "https:\/\/avatars.githubusercontent.com\/u\/131394105?v=4"
+            }
+        ]
+    },
+    {
+        "stanza": 6,
+        "gioco": "Sasso-carta-forbice",
+        "numero": 4,
+        "giocatore": [
+            {
+                "Nome": "sadd",
+                "Img": "https:\/\/avatars.githubusercontent.com\/u\/131394105?v=4"
+            }
+        ]
+    },
+    {
+        "stanza": 7,
+        "gioco": "pokemon",
+        "numero": 2,
+        "giocatore": [
+            {
+                "Nome": "sadd",
+                "Img": "https:\/\/avatars.githubusercontent.com\/u\/131394105?v=4"
+            }
+        ]
+    },
+    {
+        "stanza": 8,
+        "gioco": "pokemon",
+        "numero": 2,
+        "giocatore": [
+            {
+                "Nome": "sadd",
+                "Img": "https:\/\/avatars.githubusercontent.com\/u\/131394105?v=4"
+            }
+        ]
+    }
+]

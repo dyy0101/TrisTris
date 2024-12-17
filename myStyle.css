@@ -52,3 +52,21 @@ img {
 .testo {
     font-size: 25px;
 }
+
+.container{
+    display: flex;
+}
+
+.due-parti.verticale > div {
+    height: 50%;
+    width: 100%;
+}
+
+.container.verticale {
+    display: block;
+}
+
+.grandezza-0 {
+    height: 100%;
+    width: 100%;
+}

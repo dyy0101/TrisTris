@@ -1,31 +1,28 @@
 <html>
+<header>
+<script type="text/javascript" src="AggiungiStanza.js"></script>
+<link rel="stylesheet" href="myStyle.css">
+</header>
 <body>
-    <select id="nomeGioco" onchange="selezionaGioco()">
-        <option value="Tutto">Tutto</option>
-        <option value="TrisTris">TrisTris</option>
-        <option value="SCF">Sasso-carta-forbice</option>
-    </select>
-    <div id="Stanza">
+    <div class = 'container due-parti verticale grandezza-0'>
+        <div class="top main container">
+            <div class="content testo-stanza" id="stanza">INSERISCI COD STANZA: </div>
+            <div class="content testo">
+                <input type="text" id="inputStanza" name="inputStanza" onchange="checkStanza()">
+            </div>
+            <div id = "checkStanza">
+            </div>
+            <div id = "aggiungiButton">
+            </div>
+        </div>
+        <div class="bottom main container">
+            <select id="nomeGioco" onchange="selezionaGioco()" >
+                <option value="Tutto">Tutto</option>
+                <option value="TrisTris">TrisTris</option>
+                <option value="Sasso-carta-forbice">Sasso-carta-forbice</option>
+            </select>
+            <div id="Stanza"></div>
+        </div>
     </div>
-    
-<input type="button" value="Change option to 2" />
 </body>
 </html>
-
-<script>
-
-var elencoStanze;
-
-const xhttp = new XMLHttpRequest();
-xhttp.onload = function() {
- elencoStanze = this.responseText;
-}
-xhttp.open("GET", "Stanze.txt");
-xhttp.send();
-
-function selezionaGioco(){
-    var gioco = document.getElementById("nomeGioco").value;
-
-}
-
-</script>
