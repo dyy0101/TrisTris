@@ -54,7 +54,8 @@ function selezionaGioco(){
 var stanzaEsistente = false;
 
 function checkStanza(){
-    var check = document.getElementById('checkStanza');
+    var check = document.getElementById('inputStanza');
+    alert(check);
     var haStanza = false;
 
     for(let i = 0; i < elencoStanze.length; i++){
@@ -62,22 +63,29 @@ function checkStanza(){
             haStanza = true;
     }
 
+    alert(true);
     if(haStanza){
         if(check.innerHTML != ''){
             check.innerHTML = '';
         }
         stanzaEsistente = true;
+        alert(true);
+        aggiungiStanza("aggiungiButtonInsert");
     }
     else{
+        alert(false);
         check.innerHTML = 'codice stanza non esistente';
         stanzaEsistente = false;
+        if(document.getElementById("aggiungiButtonInsert").hasChildNodes()){
+            document.getElementById("aggiungiButtonInsert").removeChild(document.getElementById("aggiungiButtonInsert").firstChild);
+        }
     }
 }
 
-function aggiungiStanza(){
-    console.log('clicked');
+function aggiungiStanza(padre){
+    alert('clicked');
 }
 
 function stanzaSelezionata(){
-    console.log('changed');
+    aggiungiStanza("aggiungiButtonSelect");
 }
