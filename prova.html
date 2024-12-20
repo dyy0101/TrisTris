@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Input Check</title>
+    <style>
+        #output {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" id="userInput" placeholder="Type something..." />
+    <div id="output"></div>
+
+    <script>
+        // Get the input element and the output div
+        const inputField = document.getElementById("userInput");
+        const outputDiv = document.getElementById("output");
+
+        // Add event listener for 'input' event (fired after the input value changes)
+        inputField.addEventListener("input", function(event) {
+            // Get the current value of the input field (updated value)
+            const currentInput = inputField.value;
+
+            // Display the current input
+            outputDiv.textContent = "Current input: " + currentInput;
+
+            // For example, check if the input contains the letter 'a'
+            if (currentInput.includes('a')) {
+                outputDiv.textContent += " (Contains 'a')";
+            }
+        });
+    </script>
+
+</body>
+</html>

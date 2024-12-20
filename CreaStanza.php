@@ -1,37 +1,57 @@
 
 <?php
     session_start();
+    $tipo = $_POST['tipo'];
     if($_SESSION['gioco'] === []){
-        $nome = $_POST['nome'];
-        $gioco = $_POST['gioco'];
-        $numero = $_POST['numero'];
+        
         $string = file_get_contents("Stanze.json");
         $json = json_decode($string,true);
-        $stanza = 1;
-    
-        $st = array_column($json, 'stanza');
-        array_multisort($st, SORT_ASC, $json);
-    
-        for ($i = 0 ; $i < sizeof($json); $i++){
-            if($stanza == $json[$i]['stanza']){
-                $stanza ++;
+
+        $nome = $_POST['nome'];
+
+        if($tipo == 'crea'){
+            $gioco = $_POST['gioco'];
+            $numero = $_POST['numero'];
+            $stanza = 1;
+        
+            $st = array_column($json, 'stanza');
+            array_multisort($st, SORT_ASC, $json);
+        
+            for ($i = 0 ; $i < sizeof($json); $i++){
+                if($stanza == $json[$i]['stanza']){
+                    $stanza ++;
+                }
             }
+        
+        
+            $giocatore = array();
+
         }
+        else{
+            $stanza = $_POST['stanza'];
+            for($i = 0; $i < sizeof($json); $i++){
+                if($json[$i]['stanza'] == $stanza){
+                    $partita = $json[$i];
+                }
+            }
+            $giocatore = $partita['giocatore'];
+            $numero = $partita['numero'];
+            $gioco = $partita['gioco'];
+        }
+
+        $newJ = array("Nome"=>$nome,"Img"=>"https://avatars.githubusercontent.com/u/131394105?v=4");
+        $giocatore[] = $newJ;
+        $newStanza = array("stanza"=>$stanza, "gioco"=>$gioco, "numero"=>(int)$numero, "giocatore"=>$giocatore);
+        $json[] = $newStanza;
     
-    
-        $giocatore = array(array("Nome"=>$nome,"Img"=>"https://avatars.githubusercontent.com/u/131394105?v=4"));
+        $newJson = json_encode($json);
+        file_put_contents('Stanze.json', $newJson);
 
         $_SESSION['gioco']['stanza'] = $stanza;
         $_SESSION['gioco']['nome'] = $nome;
         $_SESSION['gioco']['gioco'] = $gioco;
         $_SESSION['gioco']['numero'] = $numero;
         $_SESSION['gioco']['giocatore'] = $giocatore;
-
-        $newStanza = array("stanza"=>$stanza, "gioco"=>$gioco, "numero"=>(int)$numero, "giocatore"=>$giocatore);
-        $json[] = $newStanza;
-    
-        $newJson = json_encode($json);
-        file_put_contents('Stanze.json', $newJson);
     }
     else{
         
@@ -85,4 +105,3 @@
 
     </body>
 </html>
-?>

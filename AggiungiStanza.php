@@ -8,7 +8,7 @@
         <div class="top main container">
             <div class="content testo-stanza" id="stanza">INSERISCI COD STANZA: </div>
             <div class="content testo">
-                <input type="text" id="inputStanza" name="inputStanza" onchange="checkStanza()">
+                <input type="text" id="inputStanza" name="inputStanza">
             </div>
             <div id = "checkStanza"></div>
             <div id = "aggiungiButtonInsert"></div>

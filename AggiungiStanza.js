@@ -54,11 +54,10 @@ function selezionaGioco(){
 
 var stanzaEsistente = false;
 
+
 function checkStanza(){
-
-    var check = document.getElementById('checkStanza');
     var haStanza = false;
-
+    
     for(let i = 0; i < elencoStanze.length; i++){
         if(elencoStanze[i]['stanza'] === Number(document.getElementById('inputStanza').value))
             haStanza = true;
@@ -79,8 +78,10 @@ function checkStanza(){
     }
 }
 
+var check = document.getElementById('checkStanza');
+check.addEventListener('input',checkStanza());
+
 function aggiungiStanza(padre){
-    
     var p = document.getElementById(padre);
     var button = document.createElement('input');
     button.setAttribute('type','button');
@@ -101,6 +102,7 @@ function stanzaSelezionata(){
 }
 
 function cambiaStanza(value){
+    console.log(typeof Number(value) + Number(value) );
     console.log(value);
 }
 
@@ -109,3 +111,25 @@ function removeChildNode(padre){
         document.getElementById(padre).removeChild(document.getElementById(padre).firstChild);
     }
 }
+
+function post(path, params, method='post') {
+
+    const form = document.createElement('form');
+    form.method = method;
+    form.action = path;
+  
+    for (const key in params) {
+      if (params.hasOwnProperty(key)) {
+        const hiddenField = document.createElement('input');
+        hiddenField.type = 'hidden';
+        hiddenField.name = key;
+        hiddenField.value = params[key];
+  
+        form.appendChild(hiddenField);
+      }
+    }
+  
+    document.body.appendChild(form);
+    form.submit();
+}
+  
