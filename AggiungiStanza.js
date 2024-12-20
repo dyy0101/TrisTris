@@ -49,49 +49,63 @@ function selezionaGioco(){
         option.text = stanze[i];
         stanzeList.appendChild(option);
     }
+    stanzaSelezionata();
 }
 
 var stanzaEsistente = false;
 
 function checkStanza(){
-    var check = document.getElementById('inputStanza');
-    console.log(check);
+
+    var check = document.getElementById('checkStanza');
     var haStanza = false;
 
     for(let i = 0; i < elencoStanze.length; i++){
         if(elencoStanze[i]['stanza'] === Number(document.getElementById('inputStanza').value))
             haStanza = true;
     }
-
-    console.log(true);
     if(haStanza){
         if(check.innerHTML != ''){
             check.innerHTML = '';
         }
         stanzaEsistente = true;
-        console.log(true);
-        aggiungiStanza("aggiungiButtonInsert");
+        if(!document.getElementById('aggiungiButtonInsert').hasChildNodes()){
+            aggiungiStanza("aggiungiButtonInsert");
+        }
     }
     else{
-        console.log(false);
         check.innerHTML = 'codice stanza non esistente';
+        removeChildNode('aggiungiButtonInsert');
         stanzaEsistente = false;
-        if(document.getElementById("aggiungiButtonInsert").hasChildNodes()){
-            document.getElementById("aggiungiButtonInsert").removeChild(document.getElementById("aggiungiButtonInsert").firstChild);
-        }
     }
 }
 
 function aggiungiStanza(padre){
+    
     var p = document.getElementById(padre);
-    var button = document.createElement('button');
-    button.setAttribute('onclick','cambiaStanza()');
+    var button = document.createElement('input');
+    button.setAttribute('type','button');
+    button.setAttribute('value', 'AggiungiStanza');
+    button.setAttribute('onclick','cambiaStanza(this.value)');
+    p.appendChild(button);
 }
 
 function stanzaSelezionata(){
-    aggiungiStanza("aggiungiButtonSelect");
+    if(document.getElementById('codStanza').length > 0){
+        if(!document.getElementById('aggiungiButtonSelect').hasChildNodes()){
+            aggiungiStanza("aggiungiButtonSelect");
+        }
+    }
+    else{
+        removeChildNode("aggiungiButtonSelect");
+    }
 }
 
-function cambiaStanza(){
-    console.log('aggiunta');
+function cambiaStanza(value){
+    console.log(value);
+}
+
+function removeChildNode(padre){
+    if(document.getElementById(padre).hasChildNodes()){
+        document.getElementById(padre).removeChild(document.getElementById(padre).firstChild);
+    }
 }

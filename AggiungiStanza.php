@@ -10,10 +10,8 @@
             <div class="content testo">
                 <input type="text" id="inputStanza" name="inputStanza" onchange="checkStanza()">
             </div>
-            <div id = "checkStanza">
-            </div>
-            <div id = "aggiungiButtonInsert">
-            </div>
+            <div id = "checkStanza"></div>
+            <div id = "aggiungiButtonInsert"></div>
         </div>
         <div class="bottom main container">
             <select id="nomeGioco" onchange="selezionaGioco()" >
@@ -22,8 +20,7 @@
                 <option value="Sasso-carta-forbice">Sasso-carta-forbice</option>
             </select>
             <div id="Stanza"></div>
-            <div id = "aggiungiButtonSelect">
-            </div>
+            <div id = "aggiungiButtonSelect"></div>
         </div>
     </div>
 </body>
