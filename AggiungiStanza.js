@@ -54,13 +54,18 @@ function selezionaGioco(){
 
 var stanzaEsistente = false;
 
+var input = document.getElementById('inputStanza');
+console.log(input);
+input.addEventListener("input", function(event) {
+    var check = document.getElementById('checkStanza');
+    var value = input.value;
 
-function checkStanza(){
     var haStanza = false;
     
     for(let i = 0; i < elencoStanze.length; i++){
-        if(elencoStanze[i]['stanza'] === Number(document.getElementById('inputStanza').value))
+        if(elencoStanze[i]['stanza'] === Number(value)){
             haStanza = true;
+        }
     }
     if(haStanza){
         if(check.innerHTML != ''){
@@ -68,33 +73,37 @@ function checkStanza(){
         }
         stanzaEsistente = true;
         if(!document.getElementById('aggiungiButtonInsert').hasChildNodes()){
-            aggiungiStanza("aggiungiButtonInsert");
+            aggiungiStanza("aggiungiButtonInsert",value);
         }
     }
     else{
-        check.innerHTML = 'codice stanza non esistente';
+        if(value != ''){
+            check.innerHTML = 'codice stanza non esistente';
+        }
+        else{
+            check.innerHTML = '';
+        }
         removeChildNode('aggiungiButtonInsert');
         stanzaEsistente = false;
     }
-}
+});
 
-var check = document.getElementById('checkStanza');
-check.addEventListener('input',checkStanza());
-
-function aggiungiStanza(padre){
+function aggiungiStanza(padre, stanza){
+    console.log(stanza);
     var p = document.getElementById(padre);
     var button = document.createElement('input');
     button.setAttribute('type','button');
     button.setAttribute('value', 'AggiungiStanza');
-    button.setAttribute('onclick','cambiaStanza(this.value)');
+    button.stanza = stanza;
+    button.setAttribute('onclick','cambiaStanza(this.stanza)');
     p.appendChild(button);
 }
 
 function stanzaSelezionata(){
     if(document.getElementById('codStanza').length > 0){
-        if(!document.getElementById('aggiungiButtonSelect').hasChildNodes()){
-            aggiungiStanza("aggiungiButtonSelect");
-        }
+        removeChildNode('aggiungiButtonSelect');
+        var st = $("#codStanza")[0];
+        aggiungiStanza("aggiungiButtonSelect",st.value);
     }
     else{
         removeChildNode("aggiungiButtonSelect");
@@ -102,8 +111,12 @@ function stanzaSelezionata(){
 }
 
 function cambiaStanza(value){
-    console.log(typeof Number(value) + Number(value) );
-    console.log(value);
+    var parametri = {
+        tipo:'aggiunta',
+        nome:'dyy',
+        stanza:Number(value)
+    };
+    post('CreaStanza.php',parametri);
 }
 
 function removeChildNode(padre){

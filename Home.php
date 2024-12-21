@@ -1,5 +1,5 @@
 <form method="POST" action="CreaStanza.php">
-stanza: <input type="text" name="stanza" placeholder='crea'> 
+stanza: <input type="text" name="tipo" placeholder='crea'> 
 nome: <input type="text" name="nome"> 
 gioco: <input type="text" name="gioco"> 
 num: <input type="text" name="numero"> 

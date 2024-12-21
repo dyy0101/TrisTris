@@ -1,15 +1,20 @@
+<?php
+session_start();
+session_unset();
+$_SESSION['gioco'] = [];
+?>
+
 <html>
-<header>
-<script type="text/javascript" src="AggiungiStanza.js"></script>
+<head>
+<script type="text/javascript" src="AggiungiStanza.js" defer></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="myStyle.css">
-</header>
+</head>
 <body>
     <div class = 'container due-parti verticale grandezza-0'>
         <div class="top main container">
             <div class="content testo-stanza" id="stanza">INSERISCI COD STANZA: </div>
-            <div class="content testo">
-                <input type="text" id="inputStanza" name="inputStanza">
-            </div>
+            <input type="text" id="inputStanza" name="inputStanza">
             <div id = "checkStanza"></div>
             <div id = "aggiungiButtonInsert"></div>
         </div>

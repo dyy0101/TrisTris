@@ -1,13 +1,15 @@
 
 <?php
     session_start();
-    $tipo = $_POST['tipo'];
     if($_SESSION['gioco'] === []){
+        $tipo = $_POST['tipo'];
         
         $string = file_get_contents("Stanze.json");
         $json = json_decode($string,true);
 
         $nome = $_POST['nome'];
+
+        $newJ = array("Nome"=>$nome,"Img"=>"https://avatars.githubusercontent.com/u/131394105?v=4");
 
         if($tipo == 'crea'){
             $gioco = $_POST['gioco'];
@@ -26,23 +28,26 @@
         
             $giocatore = array();
 
+            $giocatore[] = $newJ;
+            $newStanza = array("stanza"=>$stanza, "gioco"=>$gioco, "numero"=>(int)$numero, "giocatore"=>$giocatore);
+            $json[] = $newStanza;
+
         }
         else{
             $stanza = $_POST['stanza'];
             for($i = 0; $i < sizeof($json); $i++){
                 if($json[$i]['stanza'] == $stanza){
                     $partita = $json[$i];
+                    $index = $i;
                 }
             }
             $giocatore = $partita['giocatore'];
             $numero = $partita['numero'];
             $gioco = $partita['gioco'];
-        }
 
-        $newJ = array("Nome"=>$nome,"Img"=>"https://avatars.githubusercontent.com/u/131394105?v=4");
-        $giocatore[] = $newJ;
-        $newStanza = array("stanza"=>$stanza, "gioco"=>$gioco, "numero"=>(int)$numero, "giocatore"=>$giocatore);
-        $json[] = $newStanza;
+            $giocatore[] = $newJ;
+            $json[$index]['giocatore'] = $giocatore;
+        }
     
         $newJson = json_encode($json);
         file_put_contents('Stanze.json', $newJson);
