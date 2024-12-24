@@ -1,6 +1,7 @@
 
 <?php
     session_start();
+    $haPosto = true;
     if($_SESSION['gioco'] === []){
         $tipo = $_POST['tipo'];
         
@@ -44,69 +45,35 @@
             $giocatore = $partita['giocatore'];
             $numero = $partita['numero'];
             $gioco = $partita['gioco'];
-
-            $giocatore[] = $newJ;
-            $json[$index]['giocatore'] = $giocatore;
+            if(sizeof($giocatore) === $numero){
+                $haPosto = false;
+            }else{
+                $giocatore[] = $newJ;
+                $json[$index]['giocatore'] = $giocatore;
+            }
         }
-    
-        $newJson = json_encode($json);
-        file_put_contents('Stanze.json', $newJson);
+        if($haPosto){
 
-        $_SESSION['gioco']['stanza'] = $stanza;
-        $_SESSION['gioco']['nome'] = $nome;
-        $_SESSION['gioco']['gioco'] = $gioco;
-        $_SESSION['gioco']['numero'] = $numero;
-        $_SESSION['gioco']['giocatore'] = $giocatore;
+            $newJson = json_encode($json);
+            file_put_contents('Stanze.json', $newJson);    
+
+            $_SESSION['gioco']['stanza'] = $stanza;
+            $_SESSION['gioco']['nome'] = $nome;
+            $_SESSION['gioco']['gioco'] = $gioco;
+            $_SESSION['gioco']['numero'] = $numero;
+            $_SESSION['gioco']['giocatore'] = $giocatore;
+        }
+    }
+    if($haPosto){
+        header("Location: StanzaAttesa.php");
+        exit;
     }
     else{
-        
-        $stanza = $_SESSION['gioco']['stanza'];
-        $nome = $_SESSION['gioco']['nome'];
-        $gioco = $_SESSION['gioco']['gioco'];
-        $numero = $_SESSION['gioco']['numero'];
-        $giocatore = $_SESSION['gioco']['giocatore'];
+        echo "<div id='allerta'>SI E' VERIFICATO UN ERRORE. <br> la stanza è già piena</div>";
+        echo "<div>
+                <a href = 'Home.php'>crea una nuova stanza</a>
+                <a href = 'AggiungiStanza.php'>aggiungi in una stanza</a>
+              </div>";
+        $_SESSION['gioco'] = [];
     }
 ?>
-<html>
-    <head>
-        <link rel="stylesheet" href="myStyle.css">
-    </head>
-    <body>
-
-        <div class="main container">
-            <?php
-                
-                echo '<div class="content testo" id="gioco">';
-                echo 'gioco : '. $gioco;
-                echo '</div>';
-                echo '<div class="content testo-stanza" id="stanza">';
-                echo 'CODICE STANZA : '. $stanza;
-                echo '</div>';
-                echo '<div class="content testo" id="giocatori">';
-                echo 'giocatori restanti : '. $numero - sizeOf($giocatore);
-                echo '</div>';
-            ?>
-        </div>
-
-        <div class="content-bottom">
-
-            <div class="esc-button" onclick="escCheck()"> ESC </div>
-            <div class="player-container">
-            <?php                
-                for($i = 0; $i < sizeOf($giocatore); $i ++){
-                    echo '<div class="player-img" id="'.$i.'">';
-                    echo "<img src = '".$giocatore[$i]["Img"]."'>";
-                    echo '</div>';
-                }
-                for($i = 0; $i < $numero - sizeOf($giocatore); $i ++){
-                    echo '<div class="player-img" id="'.$i.'">';
-                    echo '<img src = "https://cdn.pixabay.com/animation/2022/07/29/03/42/03-42-05-37_512.gif">';
-                    echo '</div>';
-                }
-            ?>
-            </div>
-
-        </div>
-
-    </body>
-</html>
