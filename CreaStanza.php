@@ -9,7 +9,7 @@
 
         $nome = $_POST['nome'];
 
-        $newJ = array("Nome"=>$nome,"Img"=>"https://avatars.githubusercontent.com/u/131394105?v=4");
+        $newJ = array("nome"=>$nome,"img"=>"https://avatars.githubusercontent.com/u/131394105?v=4");
 
         if($tipo == 'crea'){
             $gioco = $_POST['gioco'];
