@@ -13,7 +13,7 @@ function fetchStanze(){
     xhttp.open("GET", "Stanze.json",true);
     xhttp.send();
 }
-
+//
 fetchStanze();
 
 function selezionaGioco(){
