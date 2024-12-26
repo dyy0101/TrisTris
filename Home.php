@@ -20,7 +20,7 @@ if(!empty($_SESSION['gioco'])){
                     break;
                 }
             }
-            if(empty( $stanza['stanza'])){
+            if(empty( $stanza['stanza']['giocatore'])){
                 unset($json[$indice]);
                 break;
             }
