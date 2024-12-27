@@ -1,5 +1,6 @@
 <?php
 session_start();
+print_r($_SESSION);
 $stanza = $_SESSION['gioco']['stanza'];
 $nome = $_SESSION['gioco']['nome'];
 $gioco = $_SESSION['gioco']['gioco'];

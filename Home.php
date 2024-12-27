@@ -7,12 +7,14 @@ num: <input type="text" name="numero">
 </form>
 <?php
 session_start();
-
 if(!empty($_SESSION['gioco'])){
     
     $string = file_get_contents("Stanze.json");
     $json = json_decode($string,true);
     foreach($json as $indice => $stanza){
+        if(empty( $stanza['stanza']['giocatore'])){
+            unset($json[$indice]);
+        }
         if($stanza['stanza'] === $_SESSION['gioco']['stanza']){
             foreach($stanza['giocatore'] as $ind => $giocatore){
                 if($stanza['giocatore'][$ind]['nome'] === $_SESSION['gioco']['nome']){
@@ -20,11 +22,6 @@ if(!empty($_SESSION['gioco'])){
                     break;
                 }
             }
-            if(empty( $stanza['stanza']['giocatore'])){
-                unset($json[$indice]);
-                break;
-            }
-            break;
         }
     }
     $json = array_values($json);

@@ -2,7 +2,7 @@
 <?php
     session_start();
     $haPosto = true;
-    if($_SESSION['gioco'] === []){
+    if(empty($_SESSION['gioco'])){
         $tipo = $_POST['tipo'];
         
         $string = file_get_contents("Stanze.json");
